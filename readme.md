@@ -57,7 +57,7 @@ You can find more information about the technologies used here
 markdown or html
 * [Compass](http://compass-style.org/) - Compass is used (through a Jekyll 
 plugin) to compile SCSS into CSS
-* [Bootstrap](http://getbootstrap.com/) - The CSS is based on Bootrstrap
+* [Bootstrap](http://getbootstrap.com/) - The CSS is based on Bootstrap
 * [Docker](https://www.docker.com/) - Docker is used to create a consistent 
 development and test environment
 * [HTML Proofer](https://github.com/gjtorikian/html-proofer)
