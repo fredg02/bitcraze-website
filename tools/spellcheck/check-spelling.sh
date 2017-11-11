@@ -8,7 +8,8 @@ GREEN='\033[0;32m'
 BLUE='\033[0;36m'
 NC='\033[0m' # No Color
 
-personalDictionary=aspell.dic.en
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+personalDictionary=$dir/aspell.dic.en
 api_url=https://api.github.com/repos/bitcraze/bitcraze-website
 
 
@@ -55,7 +56,7 @@ removeMetadata() {
 
 spellcheck() {
   echo -e "$BLUE>> Checking in 'en' (many technical words are in English anyway)...$NC"
-  MISSPELLED=`echo "$TEXT_CONTENT_WITHOUT_METADATA" | aspell --lang=en --encoding=utf-8 --ignore-case --personal=./$personalDictionary list | sort -u`
+  MISSPELLED=`echo "$TEXT_CONTENT_WITHOUT_METADATA" | aspell --lang=en --encoding=utf-8 --ignore-case --personal=$personalDictionary list | sort -u`
   # remove words that appear more than once and only differ in case and have 3 or less characters + lazy hack to remove empty entries
   MISSPELLED=`echo "$MISSPELLED" | uniq -u -i | sed -e 's/\b\(\w\)\{,3\}\b//g' | sed '/^$/d'`
 
